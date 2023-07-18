@@ -1,16 +1,16 @@
 import rclpy
 from rclpy.node import Node
-import std_msgs
+from std_msgs.msg import String
 import time
 
 class MyPublisher(Node):
     def __init__(self):
         super().__init__("my_publisher_node")
-        self.publisher = self.create_publisher(std_msgs.msg.String, 'my_talker', 5)
+        self.publisher = self.create_publisher(String, 'my_talker', 5)
         self.timer = self.create_timer(1, self.publish)
         self.counter = 0
     def publish(self):
-        msg = std_msgs.msg.String()
+        msg = String()
         msg.data = f"'Hello World: {self.counter}'"
         self.publisher.publish(msg)
         print(f"[INFO] [{time.time()}] [talker]: Publishing: {msg.data}")
