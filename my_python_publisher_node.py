@@ -1,0 +1,31 @@
+import rclpy
+import std_msgs
+import time
+
+class MyPublisher(rclpy.node.Node):
+    def __init__(self):
+        super().__init__("my_publisher_node")
+        self.publisher = self.create_publisher(std_msgs.msg.String, 'my_talker', 5)
+        self.timer = self.create_timer(1, self.publish)
+        self.counter = 0
+    def publish(self):
+        msg = std_msgs.msg.String()
+        msg.data = f"'Hello World: {self.counter}'"
+        self.publisher.publish(msg)
+        print(f"[INFO] [{time.time()}] [talker]: Publishing: {msg.data}")
+        self.counter += 1
+
+def talker():
+    rclpy.init()
+    my_publisher_object = MyPublisher()
+    try:
+        rclpy.spin(my_publisher_object)
+    except KeyboardInterrupt:
+        print("Destroying node...")
+        my_publisher_object.destroy_node()
+    finally:
+        print("Done!")
+
+if __name__ == "__main__":
+    talker()
+
