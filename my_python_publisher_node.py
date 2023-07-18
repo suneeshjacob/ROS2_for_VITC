@@ -25,7 +25,7 @@ def talker():
         print("Destroying node...")
         my_publisher_object.destroy_node()
     finally:
-        print("Done!")
+        print("Bye bye!")
 
 if __name__ == "__main__":
     talker()
