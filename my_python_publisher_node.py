@@ -13,7 +13,7 @@ class MyPublisher(Node):
         msg = String()
         msg.data = f"'Hello World: {self.counter}'"
         self.publisher.publish(msg)
-        print(f"[INFO] [{time.time()}] [talker]: Publishing: {msg.data}")
+        print(f"[INFO] [{format(time.time(),'0.7f')}] [talker]: Publishing: {msg.data}")
         self.counter += 1
 
 def talker():
