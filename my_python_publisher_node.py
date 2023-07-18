@@ -1,8 +1,9 @@
 import rclpy
+from rclpy.node import Node
 import std_msgs
 import time
 
-class MyPublisher(rclpy.node.Node):
+class MyPublisher(Node):
     def __init__(self):
         super().__init__("my_publisher_node")
         self.publisher = self.create_publisher(std_msgs.msg.String, 'my_talker', 5)
