@@ -1,5 +1,5 @@
 node = ros2node("message_publisher");
-topic = "/chatter";
+topic = "/hello_world";
 pub = ros2publisher(node,topic,"std_msgs/String");
 
 msg = ros2message(pub);
