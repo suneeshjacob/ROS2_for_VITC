@@ -17,14 +17,14 @@ class MyPublisher(Node):
 
 rclpy.init()
 my_publisher_object = MyPublisher()
+print('publisher object ok')
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
-def listener():    
+def listener():
     received_data = request.get_json()
-    my_publisher_object.publish(f'Data received: {received_data}')
-    print(received_data)
+    my_publisher_object.publish_received_message(f'Data received: {received_data}')
     return 'Got it!'
 
 if __name__ == "__main__":
