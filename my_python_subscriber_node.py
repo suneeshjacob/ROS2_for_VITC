@@ -6,7 +6,7 @@ import time
 class MySubscriber(Node):
     def __init__(self):
         super().__init__("my_subscriber_node")
-        self.subscriber = self.create_subscription(String, 'my_talker', self.receipt, 5)
+        self.subscriber = self.create_subscription(String, 'my_topic', self.receipt, 5)
 
     def receipt(self, msg):
         print(f"[INFO] [{format(time.time(),'0.7f')}] [listener]: I heard: {msg.data}")
