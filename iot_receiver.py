@@ -24,8 +24,8 @@ def listener():
     my_publisher_object.publish_received_message(f"Data received: {received_data['data']}")
     return 'Got it!'
 
-if __name__ == "__main__":
-    try:
-        app.run(host="localhost", port=5000)
-    except KeyboardInterrupt:
-        my_publisher_object.destroy_node()
+
+try:
+    app.run(host="localhost", port=5000)
+except KeyboardInterrupt:
+    my_publisher_object.destroy_node()
