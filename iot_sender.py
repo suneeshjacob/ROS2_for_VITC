@@ -7,7 +7,7 @@ import time
 
 url = 'https://8863-49-37-148-1.ngrok.io/'
 headers = {'Content-Type':'application/json'}
-data = lambda msg: {'data' : {msg.data}'}
+data = lambda msg: {'data' : f'{msg.data}'}
 
 class MySubscriber(Node):
     def __init__(self):
