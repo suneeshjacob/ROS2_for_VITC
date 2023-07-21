@@ -15,9 +15,9 @@ class MySubscriber(Node):
         self.subscriber = self.create_subscription(String, 'my_topic', self.receipt, 5)
 
     def receipt(self, msg):
-	json_data = json.dumps(data(msg))
-	r = requests.post(url, headers = headers, data = json_data)
-	time.sleep(1)
+		json_data = json.dumps(data(msg))
+		r = requests.post(url, headers = headers, data = json_data)
+		time.sleep(1)
         
 
 
