@@ -15,7 +15,6 @@ class MyPublisher(Node):
 
 rclpy.init()
 my_publisher_object = MyPublisher()
-print('publisher object ok')
 
 app = Flask(__name__)
 
