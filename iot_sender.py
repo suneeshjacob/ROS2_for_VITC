@@ -10,11 +10,11 @@ headers = {'Content-Type':'application/json'}
 data = lambda msg: {'data' : f'{msg.data}'}
 
 class MySubscriber(Node):
-    def __init__(self):
-        super().__init__("my_subscriber_node")
-        self.subscriber = self.create_subscription(String, 'my_topic', self.receipt, 5)
+	def __init__(self):
+		super().__init__("my_subscriber_node")
+		self.subscriber = self.create_subscription(String, 'my_topic', self.receipt, 5)
 
-    def receipt(self, msg):
+	def receipt(self, msg):
 		json_data = json.dumps(data(msg))
 		r = requests.post(url, headers = headers, data = json_data)
 		time.sleep(1)
