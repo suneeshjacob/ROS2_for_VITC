@@ -4,7 +4,7 @@ import time
 
 url = 'https://8863-49-37-148-1.ngrok.io/'
 headers = {'Content-Type':'application/json'}
-data = lambda number: {'data' : 'Hello World: {number}'}
+data = lambda number: {'data' : f'Hello World: {number}'}
 
 for i in range(100):
 	json_data = json.dumps(data(i+1))
