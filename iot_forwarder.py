@@ -7,7 +7,7 @@ import time
 class MyPublisher(Node):
     def __init__(self):
         super().__init__("my_publisher_node")
-        self.publisher = self.create_publisher(String, 'my_talker', 5)
+        self.publisher = self.create_publisher(String, 'my_topic', 5)
         #self.timer = self.create_timer(1, self.publish)
     def publish_received_message(self,message):
         msg = String()
