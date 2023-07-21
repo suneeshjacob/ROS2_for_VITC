@@ -23,7 +23,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def listener():    
     received_data = request.get_json()
-    my_publisher_object.publish(f'Data received: {msg.data}')
+    my_publisher_object.publish(f'Data received: {received_data}')
     print(received_data)
     return 'Got it!'
 
