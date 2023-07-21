@@ -8,12 +8,10 @@ class MyPublisher(Node):
     def __init__(self):
         super().__init__("my_publisher_node")
         self.publisher = self.create_publisher(String, 'my_topic', 5)
-        #self.timer = self.create_timer(1, self.publish)
     def publish_received_message(self,message):
         msg = String()
         msg.data = message
         self.publisher.publish(msg)
-        #print(f"[INFO] [{format(time.time(),'0.7f')}] [talker]: Publishing: {msg.data}")
 
 rclpy.init()
 my_publisher_object = MyPublisher()
